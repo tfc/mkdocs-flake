@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "mkdocs-env"
+version = "0.1.0"
+description = ""
+authors = ["Jacek Galowicz"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+cairosvg = "*"
+pillow = "*"
+
+mkdocs = "*"
+mkdocs-autorefs = "*"
+mkdocs-awesome-pages-plugin = "*"
+mkdocs-drawio-exporter = "*"
+mkdocs-exclude = "*"
+mkdocs-exclude-search = "*"
+mkdocs-gen-files = "*"
+mkdocs-git-authors-plugin = "*"
+mkdocs-git-revision-date-localized-plugin = "*"
+mkdocs-gitlab = "*"
+mkdocs-jupyter = "*"
+mkdocs-linkcheck = "*"
+mkdocs-material = "*"
+mkdocs-material-extensions = "*"
+mkdocs-mermaid2-plugin = "*"
+mkdocs-redirects = "*"
+mkdocs-simple-hooks = "*"
+mkdocs-swagger-ui-tag = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
