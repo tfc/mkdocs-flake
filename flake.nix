@@ -36,19 +36,6 @@
             inherit python;
             projectDir = ./mkdocs;
             overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
-              psutil = super.psutil.overridePythonAttrs (old: {
-                env.CFLAGS = "-ObjC ";
-                postPatch = old.postPatch or "" + ''
-                  sed -i '1s;^;#include <sys/types.h>\n;' psutil/arch/osx/net.c
-                  sed -i '1s;^;#import <Cocoa/Cocoa.h>\n;' psutil/arch/osx/sensors.c
-                '';
-                buildInputs = old.buildInputs or [ ]
-                ++ pkgs.lib.optionals (pkgs.stdenv.isDarwin) [
-                  pkgs.darwin.apple_sdk.frameworks.CoreFoundation
-                  pkgs.darwin.apple_sdk.frameworks.IOKit
-                  pkgs.darwin.apple_sdk.frameworks.Cocoa
-                ];
-              });
             });
           };
         };
