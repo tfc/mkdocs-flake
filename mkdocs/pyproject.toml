@@ -30,6 +30,8 @@ mkdocs-mermaid2-plugin = "*"
 mkdocs-redirects = "*"
 mkdocs-simple-hooks = "*"
 mkdocs-swagger-ui-tag = "*"
+mkdocs-glightbox = "*"
+plantuml-markdown = "*"
 
 [build-system]
 requires = ["poetry-core"]
