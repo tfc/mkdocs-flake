@@ -45,10 +45,16 @@
             inherit python;
             projectDir = ./mkdocs;
             overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
+              mkdocs-glightbox = super.mkdocs-glightbox.overridePythonAttrs (old: {
+                buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
+              });
+              plantuml-markdown = super.plantuml-markdown.overridePythonAttrs (old: {
+                buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
+                postPatch = ''
+                  touch test-requirements.txt
+                '';
+              });
             });
-            extraPackages = ps: [
-              #ps.plantuml-markdown
-            ];
           };
 
           mkdocs-env = pkgs.runCommand "mkdocs-env" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
@@ -57,6 +63,12 @@
                 pkgs.plantuml
               ]}
           '';
+
+          docker = pkgs.dockerTools.buildLayeredImage {
+            name = "mkdocs-flake";
+            tag = "latest";
+            config.Cmd = [ "${config.packages.mkdocs-env}/bin/mkdocs" ];
+          };
 
           documentation =
             let
