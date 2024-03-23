@@ -1,6 +1,21 @@
 
 # mkdocs-flake
 
+## Tooltips
+
+bla
+[Hover me](https://example.com "I'm a tooltip!") bla.
+lol
+
+
+## Math
+
+<https://squidfunk.github.io/mkdocs-material/reference/math/#katex-mkdocsyml>
+
+$$
+\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
+$$
+
 !!! note
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
@@ -9,7 +24,7 @@
 
 bla bla
 
-![Documentation should be easy and pretty](forgot-docs.jpg)
+![Documentation should be easy and pretty](forgot-docs.jpg){ width="400" }
 
 [Send :fontawesome-solid-paper-plane:](#){ .md-button }
 
