@@ -1,6 +1,18 @@
 
 # mkdocs-flake
 
+<div class="grid cards" markdown>
+
+- :simple-materialformkdocs: Pre-Bundled easy to use [Mkdocs](https://www.mkdocs.org/)
+- :simple-materialdesign: Cool [Mkdocs Material Design](https://squidfunk.github.io/mkdocs-material)
+- :material-image-edit: Markdown-integrated [PlantUML](https://plantuml.com/)
+- :octicons-code-review-24: [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) with highlights and annotations
+- :simple-nixos: Available as [Nix](https://nixos.org/) Flake
+- :simple-nixos: Available as [Flake-parts](https://flake.parts/) module
+- :simple-docker: Available as [Docker](https://www.docker.com/) Image
+
+</div>
+
 ## Tooltips
 
 bla

@@ -45,6 +45,7 @@
             inherit python;
             projectDir = ./mkdocs;
             overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
+              # TODO: upstream
               mkdocs-glightbox = super.mkdocs-glightbox.overridePythonAttrs (old: {
                 buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
               });
@@ -83,8 +84,16 @@
             '';
         };
 
-        checks = {
-          inherit (config.packages) mkdocs;
+        apps = {
+          default = {
+            type = "app";
+            program = pkgs.writeScriptBin "mkdocs-watch" ''
+              ${config.packages.mkdocs-env}/bin/mkdocs serve
+            '';
+          };
+        };
+
+        checks = config.packages // {
           devShell = config.packages.default;
         };
       };
