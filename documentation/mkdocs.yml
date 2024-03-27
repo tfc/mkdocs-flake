@@ -17,14 +17,12 @@ nav:
 
 
 plugins:
+  - glightbox
+  - info
   - offline
   - search
-  - social
-  #- blog # needs `paginate`
-  #- group
-  #- info
+  #- social # does not work within sandboxed builds: tries fonts.google.com
   - tags
-  - glightbox
 
 
 theme:
