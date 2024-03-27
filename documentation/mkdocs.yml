@@ -1,7 +1,7 @@
 site_name: MkDocs Distribution Flake
-site_url: https://github.com/tfc/mkdocs-flake
-repo_url: https://github.com/tfc/mkdocs-flake
-repo_name: tfc/mkdocs-flake
+site_url: https://github.com/applicative-systems/mkdocs-flake
+repo_url: https://github.com/applicative-systems/mkdocs-flake
+repo_name: applicative-systems/mkdocs-flake
 edit_uri: edit/docs/docs
 site_author: Jacek Galowicz
 copyright: Copyright &copy; 2024 Applicative Systems GmbH
@@ -14,6 +14,9 @@ nav:
     - Code: reference/code.md
   - Integration:
     - integration/index.md
+    - No Integration: integration/simple-usage.md
+    - Plain Nix Flakes: integration/flake.md
+    - flake.parts: integration/flake-parts.md
 
 
 plugins:

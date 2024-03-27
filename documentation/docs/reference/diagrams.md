@@ -2,62 +2,6 @@
 This mkdocs distribution provides two ways to provide diagrams that are
 calculated from semantic text input:
 
-## Mermaid
-
-As Mermaid diagrams are supported out of the box, please have a look at the
-[mkdocs-material documentation](https://squidfunk.github.io/mkdocs-material/reference/diagrams/)
-for more infos.
-
-### Examples:
-
-```` markdown title="Mermaid Graph Example"
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
-```
-````
-
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
-```
-
-```` markdown title="Mermaid Sequence Example"
-``` mermaid
-sequenceDiagram
-  autonumber
-  Alice->>John: Hello John, how are you?
-  loop Healthcheck
-      John->>John: Fight against hypochondria
-  end
-  Note right of John: Rational thoughts!
-  John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
-```
-````
-
-``` mermaid
-sequenceDiagram
-  autonumber
-  Alice->>John: Hello John, how are you?
-  loop Healthcheck
-      John->>John: Fight against hypochondria
-  end
-  Note right of John: Rational thoughts!
-  John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
-```
-
 ## Plantuml
 
 [PlantUML](https://plantuml.com/) is a feature rich application that comes
@@ -177,4 +121,60 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 
 Rel_U(systemAlias, extSystemAlias, "Label", "Optional Technology")
 @enduml
+```
+
+## Mermaid
+
+As Mermaid diagrams are supported out of the box, please have a look at the
+[mkdocs-material documentation](https://squidfunk.github.io/mkdocs-material/reference/diagrams/)
+for more infos.
+
+### Examples
+
+```` markdown title="Mermaid Graph Example"
+``` mermaid
+graph LR
+  A[Start] --> B{Error?};
+  B -->|Yes| C[Hmm...];
+  C --> D[Debug];
+  D --> B;
+  B ---->|No| E[Yay!];
+```
+````
+
+``` mermaid
+graph LR
+  A[Start] --> B{Error?};
+  B -->|Yes| C[Hmm...];
+  C --> D[Debug];
+  D --> B;
+  B ---->|No| E[Yay!];
+```
+
+```` markdown title="Mermaid Sequence Example"
+``` mermaid
+sequenceDiagram
+  autonumber
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+````
+
+``` mermaid
+sequenceDiagram
+  autonumber
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
 ```
