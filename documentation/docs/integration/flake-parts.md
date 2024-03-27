@@ -77,3 +77,7 @@ This will create an empty project with a `flake.nix` file (like the example
 above) and a minimal mkdocs project.
 
 Here, you can run `nix build .#documentation` or `nix run .#watch-documentation`
+
+## Options Reference
+
+<!-- placeholder -->

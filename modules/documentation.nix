@@ -11,13 +11,14 @@ in
     mkdocs-root = lib.mkOption {
       type = lib.types.nullOr lib.types.path;
       default = null;
-      description = lib.mdDoc "Path to a mkdocs documentation project";
+      description = "Path to your mkdocs documentation project with mkdocs.yml";
     };
 
     mkdocs-package = lib.mkOption {
       type = lib.types.package;
       default = mkdocs-flake.withSystem system ({ config, ... }: config.packages.mkdocs);
-      description = lib.mdDoc "The mkdocs package to use.";
+      defaultText = ''mkdocs-flake.packages.''${system}.mkdocs'';
+      description = "The mkdocs package to use.";
     };
 
     strict = lib.mkEnableOption "build the documentation with `--strict`";

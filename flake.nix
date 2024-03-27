@@ -95,11 +95,47 @@
               tag = "latest";
               config.Cmd = [ "${config.packages.mkdocs}/bin/mkdocs" ];
             };
-          };
 
-          documentation = {
-            mkdocs-root = ./documentation;
-            strict = true;
+            flake-parts-options =
+              let
+                minimalOptions = { lib, ... }:
+                  let
+                    fakeOption = lib.mkOption { internal = true; };
+                  in
+                    {
+                    options = {
+                      apps = fakeOption;
+                      packages = fakeOption;
+                    };
+                };
+                eval = pkgs.lib.evalModules {
+                  modules = [
+                    minimalOptions
+                    ./modules/documentation.nix
+                  ];
+                };
+                optionsDoc = pkgs.nixosOptionsDoc {
+                  options = {
+                    inherit (eval.options) documentation;
+                  };
+                  documentType = "none";
+                };
+              in
+                optionsDoc.optionsCommonMark;
+
+            documentation =
+              let
+                mkdocs-root = pkgs.runCommand "documentation" {} ''
+                  cp -r ${./documentation} $out
+                  substituteInPlace $out/docs/integration/flake-parts.md \
+                    --replace "<!-- placeholder -->" "$(cat ${config.packages.flake-parts-options})"
+                '';
+              in
+                pkgs.runCommand "mkdocs-flake-documentation" {} ''
+                  cd ${mkdocs-root}
+                  ${config.packages.mkdocs}/bin/mkdocs build --strict --site-dir $out
+                  sed -i 's|/nix/store/[^/]\+/||g' $out/integration/flake-parts.html
+                '';
           };
 
           apps = {
