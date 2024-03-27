@@ -25,7 +25,7 @@ in
 
   config = lib.mkIf (cfg.mkdocs-root != null) {
     packages.documentation = pkgs.runCommand "mkdocs-flake-documentation" {} ''
-      cp -r ${cfg.mkdocs-root}/* .
+      cd ${cfg.mkdocs-root}
       ${cfg.mkdocs-package}/bin/mkdocs build ${strict} --site-dir $out
     '';
 
