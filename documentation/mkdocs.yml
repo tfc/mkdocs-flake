@@ -85,9 +85,8 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
-  font:
-    text: Roboto
-    code: Roboto Mono
+  theme:
+    font: false
 
   icon:
     logo: logo
