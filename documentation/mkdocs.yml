@@ -28,6 +28,8 @@ plugins:
 
 
 theme:
+  font: false
+
   language: en
 
   name: material
@@ -85,8 +87,6 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
-  theme:
-    font: false
 
   icon:
     logo: logo
