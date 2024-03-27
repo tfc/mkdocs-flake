@@ -22,7 +22,6 @@ in
   config = lib.mkIf (cfg.mkdocs-root != null) {
     packages.documentation = pkgs.runCommand "mkdocs-flake-documentation" {} ''
       cp -r ${cfg.mkdocs-root}/* .
-      ls -R
       ${cfg.mkdocs-package}/bin/mkdocs build --strict
       mv site $out
     '';
