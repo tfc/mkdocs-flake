@@ -21,8 +21,10 @@
       # (3) point mkdocs-flake to your mkdocs root folder
       documentation.mkdocs-root = ./docs;
 
-      # (4) packages.${system}.documentation is generated for you.
-      #     build it with `nix build .#documentation`
+      # (4) Build the docs:
+      #     `nix build .#documentation`
+      #     Run in watch mode for live-editing-rebuilding:
+      #     `nix run .#watch-documentation`
     };
   };
 }
