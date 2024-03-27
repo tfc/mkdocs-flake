@@ -90,10 +90,28 @@
                 ]}
             '';
 
-            docker = pkgs.dockerTools.buildLayeredImage {
-              name = "mkdocs-flake";
+            docker = pkgs.dockerTools.buildImage {
+              name = "applicativesystems/mkdocs";
               tag = "latest";
-              config.Cmd = [ "${config.packages.mkdocs}/bin/mkdocs" ];
+
+              copyToRoot = pkgs.buildEnv {
+                name = "image-root";
+                paths = [
+                  config.packages.mkdocs
+                ];
+                pathsToLink = [ "/bin" ];
+              };
+
+              config = {
+                Cmd = [ "/bin/mkdocs" "serve" ];
+                WorkingDir = "/data";
+                Volumes = { "/data" = { }; };
+              };
+
+              runAsRoot = ''
+                #!${pkgs.runtimeShell}
+                ${pkgs.dockerTools.shadowSetup}
+              '';
             };
 
             flake-parts-options =
