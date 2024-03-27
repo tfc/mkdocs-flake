@@ -4,12 +4,16 @@ repo_url: https://github.com/tfc/mkdocs-flake
 repo_name: tfc/mkdocs-flake
 edit_uri: edit/docs/docs
 site_author: Jacek Galowicz
-copyright: Jacek Galowicz
+copyright: Copyright &copy; 2024 Applicative Systems GmbH
 
 nav:
   - Home: index.md
-  - Diagrams: diagrams.md
-  - Code: code.md
+  - Reference:
+    - reference/index.md
+    - Diagrams: reference/diagrams.md
+    - Code: reference/code.md
+  - Integration:
+    - integration/index.md
 
 
 plugins:
