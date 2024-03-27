@@ -25,5 +25,12 @@ in
       ${cfg.mkdocs-package}/bin/mkdocs build --strict
       mv site $out
     '';
+
+    apps.watch-documentation = {
+      type = "app";
+      program = pkgs.writeScriptBin "mkdocs-watch" ''
+        ${cfg.mkdocs-package}/bin/mkdocs serve
+      '';
+    };
   };
 }
