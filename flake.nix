@@ -21,6 +21,15 @@
 
       flake = {
         inherit flakeModules;
+
+        templates = {
+          default = {
+            path = ./template;
+            description = ''
+              A minimal flake using mkdocs-flake.
+            '';
+          };
+        };
       };
 
       debug = true;
