@@ -97,7 +97,10 @@
             };
           };
 
-          documentation.mkdocs-root = ./documentation;
+          documentation = {
+            mkdocs-root = ./documentation;
+            strict = true;
+          };
 
           apps = {
             default = {
