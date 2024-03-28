@@ -1,5 +1,5 @@
 site_name: MkDocs Distribution Flake
-site_url: https://github.com/applicative-systems/mkdocs-flake
+site_url: https://applicative.systems/mkdocs-flake
 repo_url: https://github.com/applicative-systems/mkdocs-flake
 repo_name: applicative-systems/mkdocs-flake
 edit_uri: edit/main/documentation/docs
@@ -36,7 +36,6 @@ theme:
   name: material
 
   icon:
-    logo: bootstrap/brands/github
     repo: fontawesome/brands/github
 
   features:
