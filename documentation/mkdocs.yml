@@ -2,7 +2,7 @@ site_name: MkDocs Distribution Flake
 site_url: https://github.com/applicative-systems/mkdocs-flake
 repo_url: https://github.com/applicative-systems/mkdocs-flake
 repo_name: applicative-systems/mkdocs-flake
-edit_uri: edit/docs/docs
+edit_uri: edit/main/documentation/docs
 site_author: Jacek Galowicz
 copyright: Copyright &copy; 2024 Applicative Systems GmbH
 
