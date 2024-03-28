@@ -19,12 +19,14 @@ Example:
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      # Build documentation as package output
       packages.${system}.default = pkgs.runCommand "documentation" {} ''
         cp -r ${./docs}/* .
         ${mkdocs-flake.packages.${system}.mkdocs}/bin/mkdocs build --strict
         mv site $out
       '';
 
+      # Developer Shell with mkdocs and all the plugins
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           mkdocs-flake.packages.${system}.mkdocs
